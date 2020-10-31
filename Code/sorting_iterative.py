@@ -50,7 +50,7 @@ def insertion_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items
-  for i in range(1,len(arr)):
+  for i in range(1,len(items)):
     while i > 0 and  items[i] < items[i-1]  :
       items[i], items[i-1] = items[i-1], items[i]
       i-=1
