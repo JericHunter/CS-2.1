@@ -27,10 +27,48 @@ def merge_sort(items):
     sorting each recursively, and merging results into a list in sorted order.
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Check if list is so small it's already sorted (base case)
-    # TODO: Split items list into approximately equal halves
-    # TODO: Sort each half by recursively calling merge sort
-    # TODO: Merge sorted halves into one list in sorted order
+    # If the list is a single element, return it
+    if len(items) <= 1:
+        return items
+
+    mid = len(items) // 2
+
+    # Recursively sort and merge each half
+    left_list = merge_sort(items[:mid])
+    right_list = merge_sort(items[mid:])
+
+    # Merge the sorted lists into a new one
+    return _merge(left_list, right_list)
+
+
+def _merge(left_list, right_list):
+    result = []
+    left_index, right_index = 0, 0
+
+    for i in range(len(left_list) + len(right_list)):
+        if left_index < len(left_list) and r_index < len(right_list):
+
+            # If the item at the beginning of the left list is smaller, add it to the sorted list
+            if left_list[left_index] <= right_list[right_index]:
+                result.append(left_list[left_index])
+                left_index += 1
+
+            # If the item at the beginning of the right list is smaller, add it to the sorted list
+            else:
+                result.append(right_list[right_index])
+                right_index += 1
+
+        # If we have reached the end of the of the left list, add the elements from the right list
+        elif l_index == len(l_list):
+            result.append(right_list[right_index])
+            right_index += 1
+
+        # If we have reached the end of the of the right list, add the elements from the left list
+        elif right_index == len(right_list):
+            result.append(left_list[left_index])
+            left_index += 1
+
+    return result
 
 
 def partition(items, low, high):
