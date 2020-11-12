@@ -78,11 +78,24 @@ def partition(items, low, high):
     `[low...p-1]`, and items greater than pivot into range `[p+1...high]`.
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Choose a pivot any way and document your method in docstring above
-    # TODO: Loop through all items in range [low...high]
-    # TODO: Move items less than pivot into front of range [low...p-1]
-    # TODO: Move items greater than pivot into back of range [p+1...high]
-    # TODO: Move pivot item into final position [p] and return index p
+    pivot = items[(low + high) // 2]
+    i = low - 1
+    j = high + 1
+    while True:
+        i += 1
+        while items[i] < pivot:
+            i += 1
+
+        j -= 1
+        while items[j] > pivot:
+            j -= 1
+
+        if i >= j:
+            return j
+
+        # Swap
+        items[i], items[j] = items[j], items[i]
+
 
 
 def quick_sort(items, low=None, high=None):
@@ -91,7 +104,11 @@ def quick_sort(items, low=None, high=None):
     TODO: Best case running time: ??? Why and under what conditions?
     TODO: Worst case running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Check if high and low range bounds have default values (not given)
-    # TODO: Check if list or range is so small it's already sorted (base case)
-    # TODO: Partition items in-place around a pivot and get index of pivot
-    # TODO: Sort each sublist range by recursively calling quick sort
+    quick_sort_helper(items, 0, len(items) - 1)
+
+
+def quick_sort_helper(items, low, high):
+    if low < high:
+        split_point = partition(items, low, high)
+        quick_sort_helper(items, low, split_point)
+        quick_sort_helper(items, split_point + 1, high)
