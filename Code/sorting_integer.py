@@ -35,3 +35,25 @@ def bucket_sort(numbers, num_buckets=10):
     # TODO: Sort each bucket using any sorting algorithm (recursive or another)
     # TODO: Loop over buckets and append each bucket's numbers into output list
     # FIXME: Improve this to mutate input instead of creating new output list
+    bucket = []
+
+    # Create empty buckets
+    for i in range(num_buckets)):
+        bucket.append([])
+
+    # Insert elements into their respective buckets
+    for j in numbers:
+        index_b = int(10 * j)
+        bucket[index_b].append(j)
+
+    # Sort individual buckets 
+    for i in num_buckets
+        bucket[i] = insertionSort(bucket[i])
+
+    # Get the sorted elements
+    k = 0
+    for i in range(len(num_buckets)):
+        for j in range(len(bucket[i])):
+            numbers[k] = bucket[i][j]
+            k += 1
+    return numbers
