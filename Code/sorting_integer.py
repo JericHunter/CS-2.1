@@ -1,11 +1,12 @@
 #!python
 
+from sorting_iterative import insertion_sort
 
 def counting_sort(numbers):
     """Sort given numbers (integers) by counting occurrences of each number,
     then looping over counts and copying that many numbers into output list.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    TODO: Running time: O(n+k) the algorithm goes through n+k times
+    TODO: Memory usage:  O(max) the bigger size the range of elements, larger is the space complexity"""
     # TODO: Find range of given numbers (minimum and maximum integer values)
     # TODO: Create list of counts with a slot for each number in input range
     # TODO: Loop over given numbers and increment each number's count
@@ -27,8 +28,8 @@ def counting_sort(numbers):
 def bucket_sort(numbers, num_buckets=10):
     """Sort given numbers by distributing into buckets representing subranges,
     then sorting each bucket and concatenating all buckets in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    TODO: Running time: O(n+k) best case because it occurs when the elements are uniformly distributed in the buckets with a nearly equal number of elements in each bucket.
+    TODO: Memory usage: O(n+k) storing nums and buckets"""
     # TODO: Find range of given numbers (minimum and maximum values)
     # TODO: Create list of buckets to store numbers in subranges of input range
     # TODO: Loop over given numbers and place each item in appropriate bucket
