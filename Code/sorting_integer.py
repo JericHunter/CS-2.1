@@ -11,7 +11,18 @@ def counting_sort(numbers):
     # TODO: Loop over given numbers and increment each number's count
     # TODO: Loop over counts and append that many numbers into output list
     # FIXME: Improve this to mutate input instead of creating new output list
-
+    max_num = max(numbers)
+    count = [0] * max_num # generates maximum amount of 0's
+    
+    for num in numbers:
+        count[num] += 1 # store each occurence
+    
+    i = 0
+    
+    for val in range(m+1):
+        for _ in range(count[val]):
+            numbers[i] = val
+            wirte_pos += 1
 
 def bucket_sort(numbers, num_buckets=10):
     """Sort given numbers by distributing into buckets representing subranges,
